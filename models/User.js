@@ -1,21 +1,29 @@
 const { DataTypes } = require("sequelize");
-const sequelize = require("../conn");
+const sequelize = require("../db");
 
-module.exports = sequelize.define(
-    'User',
-    {
-      firstName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      lastName: {
-        type: DataTypes.STRING,
+const User = sequelize.define(
+  "User",
+  {
+    firstName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        // min: 4,
+        // max: 6,
+        len: [4, 6],
       },
     },
-    {
-      // timestamps: false,
-      // updatedAt: "updated_at",
-      // createdAt: false
+    lastName: {
+      type: DataTypes.STRING,
     },
-  );    
+  },
+  {
+    // timestamps: false,
+    // updatedAt: "updated_at",
+    // createdAt: false
+  }
+);
 
+User.sync({ alter: true });
+
+module.exports = User;

@@ -1,7 +1,7 @@
-const sequelize = require("../conn");
 const { DataTypes, Model } = require("sequelize");
+const sequelize = require("../db");
 
-module.exports = Model.init(
+const Employee = Model.init(
   {
     firstName: {
       type: DataTypes.STRING,
@@ -14,6 +14,10 @@ module.exports = Model.init(
   },
   {
     sequelize,
-    modelName: 'Employee',
-  },
+    modelName: "Employee",
+  }
 );
+
+Employee.sync();
+
+module.exports = Employee;
