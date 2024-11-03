@@ -16,6 +16,9 @@ const User = sequelize.define(
     lastName: {
       type: DataTypes.STRING,
     },
+    age: {
+      type: DataTypes.INTEGER.UNSIGNED,
+    },
   },
   {
     // timestamps: false,
