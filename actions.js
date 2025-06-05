@@ -15,12 +15,12 @@ const {
     {
       firstName: "test",
       lastName: "user",
-      age: 20,
+      // age: 20,
     },
     {
       firstName: "test2",
       lastName: "user",
-      age: 21,
+      // age: 21,
     },
   ];
 

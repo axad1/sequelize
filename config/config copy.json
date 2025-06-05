@@ -1,22 +1,22 @@
 {
   "development": {
     "username": "root",
-    "password": "root",
-    "database": "sequelize",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "password": null,
+    "database": "database_development",
+    "host": "mydb.sqlite",
+    "dialect": "sqlite"
   },
   "test": {
     "username": "root",
-    "password": "root",
-    "database": "sequelize",
+    "password": null,
+    "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "root",
-    "database": "sequelize",
+    "password": null,
+    "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }

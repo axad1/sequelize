@@ -1,6 +1,6 @@
-const db = require("./models");
+const sequelize = require("./db/sequelize");
 module.exports = () =>
-  db
+  sequelize
     .authenticate()
     // .then(()=> db.sync())
     .then(() => console.log("DB connected successfully"))
