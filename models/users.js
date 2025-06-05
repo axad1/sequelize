@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../db/sequelize");
+const Company = require("./company");
 
 const User = sequelize.define(
   "users",
@@ -22,10 +23,21 @@ const User = sequelize.define(
     lastName: {
       type: DataTypes.STRING,
     },
-    age: {
-      type: DataTypes.INTEGER,
-      // allowNull: false,
-      // defaultValue: 18,
+    // age: {
+    //   type: DataTypes.INTEGER,
+    //   // allowNull: false,
+    //   // defaultValue: 18,
+    // },
+    companyId: {
+      field: "company_id",
+      type: DataTypes.INTEGER.UNSIGNED,
+      allowNull: true,
+      references: {
+        model: "company",
+        key: "id",
+      },
+      onDelete: "SET NULL",
+      onUpdate: "CASCADE",
     },
   },
   {
@@ -34,6 +46,14 @@ const User = sequelize.define(
     // createdAt: false
   }
 );
+
+// User.hasOne(Company, {
+//   foreignKey: "company_id",
+// });
+
+User.belongsTo(Company, {
+  foreignKey: "company_id",
+});
 
 // User.sync({ alter: false });
 
